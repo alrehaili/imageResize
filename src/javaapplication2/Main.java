@@ -82,7 +82,7 @@ public class Main extends javax.swing.JFrame {
      File f;
     public Main() {
         initComponents();
-       
+     
     }
 
     /**
@@ -94,11 +94,11 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
+        jToggleButton3 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("IOS Icon Image Resizer");
@@ -129,6 +129,17 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication2/Images/451502-200-removebg-preview - Copy.png"))); // NOI18N
+        jToggleButton3.setMaximumSize(new java.awt.Dimension(100, 100));
+        jToggleButton3.setMinimumSize(new java.awt.Dimension(100, 100));
+        jToggleButton3.setName(""); // NOI18N
+        jToggleButton3.setPreferredSize(new java.awt.Dimension(100, 100));
+        jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -137,7 +148,9 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(406, 406, 406)
                         .addComponent(jToggleButton2))
@@ -150,12 +163,14 @@ public class Main extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(129, 129, 129)
                 .addComponent(jToggleButton2)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -177,6 +192,12 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         final JFileChooser fc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+        
+        		fc.setAcceptAllFileFilterUsed(false);
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("PNG and GIF images", "png", "gif");
+		fc.addChoosableFileFilter(filter);
+        
+        
        	int returnValue = fc.showOpenDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
 	f = fc.getSelectedFile();
@@ -232,7 +253,7 @@ public class Main extends javax.swing.JFrame {
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         // TODO add your handling code here:
         
-        		JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+            JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 		jfc.setDialogTitle("Choose a directory to save your file: ");
 		jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
@@ -242,9 +263,27 @@ public class Main extends javax.swing.JFrame {
 				System.out.println("You selected the directory: " + jfc.getSelectedFile());
 			}
 		}
-                
+                ///
                 
     }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
+        // TODO add your handling code here:
+        
+              	JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+		jfc.setDialogTitle("Choose a directory to save your file: ");
+		jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+               
+                
+		int returnValue = jfc.showSaveDialog(null);
+		if (returnValue == JFileChooser.APPROVE_OPTION)
+                {
+                    if (jfc.getSelectedFile().isDirectory())
+                    {
+                        System.out.println("You selected the directory: " + jfc.getSelectedFile());
+                    }
+		} 
+    }//GEN-LAST:event_jToggleButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,10 +321,10 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton jToggleButton3;
     // End of variables declaration//GEN-END:variables
 }
